@@ -13,7 +13,7 @@ Rust bindings for [Faasm](https://github.com/lsds/faasm). At the moment an exper
 ```
 rustup target add wasm32-unknown-unknown [--toolchain nightly]
 ```
-There is 2 others targets for Wasm (`wasm32-wasi`, `wasm32-unknown-emscripten) that might be useful
+There is 2 others targets for Wasm (`wasm32-wasi`, `wasm32-unknown-emscripten`) that might be useful
 in the future.
 
 ### Compile and run
