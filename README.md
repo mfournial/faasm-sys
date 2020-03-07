@@ -18,8 +18,8 @@ in the future.
 
 ### Compile and run
 
-Building is done through cargo, running for now can be done after the codegen by the simple runner.
-```
+Building is done through cargo, running can be done, after the codegen, by the simple runner.
+```bash
 cargo build --target wasm32-unknown-unknown
 NAME=simple_link
 INSTALL_DIR=/usr/local/code/faasm/wasm/rust/$NAME
@@ -29,8 +29,8 @@ codegen rust $NAME
 simple_runner rust $NAME
 ```
 
-Although panics are not pretty when they happen in Wasm, you can use the `assert_eq` macro for
-example to check the value of an expression until print is supported.
+Although panics do not look pretty when they happen in Wasm, `main` uses the `assert_eq` macro for
+example to check the value of an expression since print is not supported.
 ```rust
 assert_eq!(omp::get_num_threads(), 1);
 ```
