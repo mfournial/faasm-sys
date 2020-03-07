@@ -1,6 +1,6 @@
 # Faasm-sys
 
-Rust bindings for Faasm. At the moment an experimental POC.
+Rust bindings for [Faasm](https://github.com/lsds/faasm). At the moment an experimental POC.
 
 ## Run 
 
