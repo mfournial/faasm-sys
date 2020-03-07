@@ -1,0 +1,15 @@
+[package]
+name = "faasm-sys"
+description = "Rust bindings for Faasm."
+authors = ["Mayeul Fournial <mfournial@outlook.com>"]
+readme = "README.md"
+
+version = "0.1.0"
+build = "build.rs"
+edition = "2018"
+license = "Apache-2.0"
+
+[badges]
+maintenance = { status = "experimental" }
+
+[dependencies]
