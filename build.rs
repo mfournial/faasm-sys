@@ -16,6 +16,8 @@ fn main() {
         // Add libraries
         println!("cargo:rustc-link-lib=static=faasm");
         println!("cargo:rustc-link-lib=static=faasmp");
+    } else {
+       unimplemented!("Link native Faasm libraries");
     }
 
     // Included bindings were originally generated with the bindgen command line
