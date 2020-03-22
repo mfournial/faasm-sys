@@ -1,15 +1,7 @@
 // include automatically generated bindings from C include files
 include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 
-// OpenMP bindings, manually written for initial testing and for print function
 extern "C" {
-
-    // Printing hack
-    #[cfg(target_arch = "wasm32")]
-    pub fn __println(line: *const i8);
-
-    #[cfg(target_arch = "wasm32")]
-    pub fn omp_get_num_threads() -> i32;
     #[cfg(target_arch = "wasm32")]
     pub fn omp_get_thread_num() -> i32;
 }

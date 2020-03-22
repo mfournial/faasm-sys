@@ -180,3 +180,9 @@ extern "C" {
 extern "C" {
     pub fn __faasm_conf_flag(key: *const c_char) -> c_uint;
 }
+
+
+extern "C" {
+    #[cfg(target_arch = "wasm32")]
+    pub fn __println(line: *const i8);
+}

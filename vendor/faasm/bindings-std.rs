@@ -2,6 +2,11 @@
 /* Therefore manual modifications can be made */
 
 extern "C" {
+    #[cfg(target_arch = "wasm32")]
+    pub fn __println(arg1: *const ::std::os::raw::c_char);
+}
+
+extern "C" {
     pub fn __faasm_read_state(
         key: *const ::std::os::raw::c_char,
         buffer: *mut ::std::os::raw::c_uchar,
