@@ -4,7 +4,6 @@ use faasm_sys::*;
 #[cfg(target_arch = "wasm32")]
 use faasm_sys::println;
 
-// Test OpenMP linkage since it holds the print function for now
 fn main() {
-    println!("Ignore OpenMP tests for native code");
+    println!("Hello from Faasm");
 }

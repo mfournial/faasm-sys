@@ -6,7 +6,6 @@ extern "C" {
     pub fn omp_get_thread_num() -> i32;
 }
 
-
 // Replaces Rust's original println when imported, works with Wasm
 #[cfg(target_arch = "wasm32")]
 #[macro_export]
