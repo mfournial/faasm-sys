@@ -1,2 +1,2 @@
-#include "/usr/local/code/faasm/include/faasm/host_interface.h"
-#include "/usr/local/include/faasm/rfaasm.h"
+#include "../../faasm-libs/llvm-sysroot/include/faasm/host_interface.h"
+#include "../../faasm-libs/llvm-sysroot/include/faasm/rfaasm.h"
