@@ -11,7 +11,7 @@ fn main() {
 
     let target = var("TARGET").unwrap();
     if target == "wasm32-unknown-unknown" {
-        // Faasm libs
+        // Link libs from Faasm sysroot
         println!("cargo:rustc-link-search={}/llvm-sysroot/lib", FAASM_VENDOR_LIBS_FOLDER);
 
         // Add libraries

@@ -8,8 +8,7 @@ INSTALL_DIR=/usr/local/code/faasm/wasm/rust/$NAME
 mkdir -p $INSTALL_DIR
 
 # Depending on whether we are in the Rust-Faasm workspace or not
-if [ -d target ]
-then
+if [[ -d target ]]; then
     cp target/wasm32-unknown-unknown/debug/faasm-sys.wasm $INSTALL_DIR/function.wasm
 else
     cp ../target/wasm32-unknown-unknown/debug/faasm-sys.wasm $INSTALL_DIR/function.wasm

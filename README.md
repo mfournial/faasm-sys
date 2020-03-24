@@ -16,9 +16,6 @@ You can then run the build with:
 ./bin/build.sh
 ```
 
-Note that when used as a submodule of [rust-faasm](https://github.com/mfournial/rust-faasm), 
-the `target` directory is directed one level up.
-
 ## Running the test function
 
 To build and run the test function you need a Faasm 
@@ -28,6 +25,9 @@ and can use the script:
 ```bash
 ./bin/test.sh
 ```
+
+Note that when used as a submodule of [rust-faasm](https://github.com/mfournial/rust-faasm), 
+the `target` directory is directed one level up.
 
 ## `assert_eq` 
 
