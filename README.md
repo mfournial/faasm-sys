@@ -13,7 +13,7 @@ First we need the latest Faasm sysroot, this can be downloaded with:
 You can then run the build with:
 
 ```bash
-./bin/build.sh
+cargo build --target wasm32-unknown-unknown
 ```
 
 ## Running the test function
