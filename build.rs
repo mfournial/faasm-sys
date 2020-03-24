@@ -2,6 +2,7 @@ use std::{env::var, fs::copy, path::PathBuf};
 
 const FAASM_INCLUDE_WRAPPER: &str = "wrapper.h";
 const FAASM_VENDOR_FOLDER: &str = "vendor/faasm";
+const FAASM_VENDOR_LIBS_FOLDER: &str = "vendor/faasm-libs";
 
 fn main() {
     let header = format!("{}/{}", FAASM_VENDOR_FOLDER, FAASM_INCLUDE_WRAPPER);
@@ -10,8 +11,8 @@ fn main() {
 
     let target = var("TARGET").unwrap();
     if target == "wasm32-unknown-unknown" {
-        // Default Faasm libs location
-        println!("cargo:rustc-link-search=/usr/local/faasm/llvm-sysroot/lib");
+        // Link libs from Faasm sysroot
+        println!("cargo:rustc-link-search={}/llvm-sysroot/lib", FAASM_VENDOR_LIBS_FOLDER);
 
         // Add libraries
         println!("cargo:rustc-link-lib=static=faasm");
