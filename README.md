@@ -1,3 +1,4 @@
+[![!travis-ci](https://travis-ci.com/mfournial/faasm-sys.svg?branch=master)](https://travis-ci.com/github/mfournial/faasm-sys/)
 # Faasm-sys
 
 Rust bindings for [Faasm](https://github.com/lsds/Faasm). 
