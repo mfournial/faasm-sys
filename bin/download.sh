@@ -7,7 +7,6 @@ THIS_DIR=$(dirname $(readlink -f $0))
 TARGET_DIR=${THIS_DIR}/../vendor/faasm-libs
 FAASM_VERSION=0.0.9
 
-TOOLCHAIN_TAR=faasm-toolchain-${FAASM_VERSION}.tar.gz
 SYSROOT_TAR=faasm-sysroot-${FAASM_VERSION}.tar.gz
 
 LIB_URL=https://github.com/lsds/Faasm/releases/download/v${FAASM_VERSION}
@@ -19,11 +18,9 @@ function download_tar {
   rm $1
 }
 
-# Set up Faasm libs
 mkdir -p ${TARGET_DIR}
 pushd ${TARGET_DIR} >> /dev/null
 
 download_tar ${SYSROOT_TAR}
-download_tar ${TOOLCHAIN_TAR}
 
 popd >> /dev/null

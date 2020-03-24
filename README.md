@@ -7,7 +7,7 @@ Rust bindings for [Faasm](https://github.com/lsds/Faasm).
 First we need the latest Faasm sysroot, this can be downloaded with:
 
 ```bash
-./bin/download-libs.sh
+./bin/download.sh
 ```
 
 You can then run the build with:
