@@ -17,11 +17,9 @@ travis-ci = { repository = "mfournial/faasm-sys" }
 [dependencies]
 
 [build-dependencies]
-bindgen = "0.53"
 flate2 = "1.0"
 reqwest = { version = "0.10", features = ["blocking", "default-tls"], default-features = false }
 tar = "0.4"
 
 [package.metadata.docs.rs]
-
 targets = [] # Do not build docs since this is a sys crate

@@ -61,8 +61,8 @@ impl FaasmRelease {
 }
 
 // Generates a wrapper header pointing to the FaasmRelease sysroot
-fn generate_header(sysroot_path: &str) -> io::Result<String> {
-    let header_file = format!("{}/wrapper-{}.h", FAASM_VENDOR_FOLDER, FAASM_VERSION);
+fn generate_header(root_dir: &str, sysroot_dir: &str) -> io::Result<String> {
+    let header_file = format!("{}/wrapper-{}.h", root_dir, FAASM_VERSION);
     match fs::File::create(&header_file) {
         Ok(mut header_handler) => {
             let header_content = format!(
@@ -70,7 +70,7 @@ fn generate_header(sysroot_path: &str) -> io::Result<String> {
                 #include \"{}/llvm-sysroot/include/faasm/host_interface.h\"\n\
                 #include \"{}/llvm-sysroot/include/faasm/rfaasm.h\"\
             ",
-                sysroot_path, sysroot_path
+                sysroot_dir, sysroot_dir
             );
             header_handler.write_all(&header_content.into_bytes())?;
             Ok(header_file)
@@ -80,7 +80,8 @@ fn generate_header(sysroot_path: &str) -> io::Result<String> {
     }
 }
 
-// TODO - implement bindings using bindgen
+// TODO - implement bindings using bindgen. I spent several hours with it but
+// can still only generate blank outputs using the library
 fn generate_bindings(_wrapper: &str, output_file: &PathBuf) -> io::Result<()> {
     // Warn that dynamic binding generation is not implemented and needs to be ran
     // a-priori of build from the cmd line with bindgen.
@@ -107,7 +108,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         let (library_path, header) = match var("FAASM_SYS_DEV") {
             Ok(_) => (
                 "/usr/local/faasm/llvm-sysroot/lib".to_string(),
-                format!("{}/dev_wrapper.h", FAASM_VENDOR_FOLDER),
+                format!("{}/wrapper.h", FAASM_VENDOR_FOLDER),
             ),
             Err(_) => {
                 // Download the Sysroot if it doesn't exists
@@ -120,7 +121,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 let library_dir = library_path.into_os_string().into_string().unwrap();
 
                 // Generate a wrapper based on the library location
-                let header = generate_header(FaasmRelease::Sysroot.file_path().to_str().unwrap())?;
+                let header = generate_header(FAASM_VENDOR_FOLDER, &FaasmRelease::Sysroot.filename())?;
 
                 (library_dir, header)
             }
