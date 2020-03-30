@@ -28,3 +28,13 @@ env FAASM_SYS_DEV=1 cargo build --target wasm32-unknown-unknown
 
 Note that when used as a submodule of [rust-faasm](https://github.com/mfournial/rust-faasm), 
 the `target` directory is directed one level up.
+
+## Publish
+
+Since by default cargo tries to package the downloaded files in the build script and there is no
+reason we should do this, you should publish in local dev mode `FAASM_SYS_DEV` only.
+
+```bash
+set -x FAASM_SYS_DEV 1
+cargo publish --target wasm32-unknown-unknown
+```
