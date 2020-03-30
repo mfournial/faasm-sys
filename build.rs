@@ -3,8 +3,7 @@ use std::{env::var, fs, io, io::prelude::*, io::ErrorKind::AlreadyExists, path::
 use tar::Archive;
 
 const FAASM_VENDOR_FOLDER: &str = "vendor/faasm";
-//const FAASM_RELEASE_BASE_URL: &str = "https://github.com/lsds/Faasm/releases/download/v";
-const FAASM_RELEASE_BASE_URL: &str = "https://www.doc.ic.ac.uk/~mmf115/v";
+const FAASM_RELEASE_BASE_URL: &str = "https://github.com/lsds/Faasm/releases/download/v";
 const FAASM_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 enum FaasmRelease {

@@ -5,7 +5,7 @@ authors = ["Mayeul Fournial <mfournial@outlook.com>"]
 readme = "README.md"
 repository = "https://github.com/mfournial/faasm-sys"
 
-version = "0.0.10" # in sync with Faasm
+version = "0.0.12" # in sync with Faasm
 build = "build.rs"
 edition = "2018"
 license = "Apache-2.0"
